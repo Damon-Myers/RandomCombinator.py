@@ -23,7 +23,7 @@ def findCompanions(alreadyPicked, whole_list, number_needed):
 
     #concatenate the picked strings and return them
     for picked in alreadyPicked:
-    	result = result + picked + ' '
+        result = result + picked + ' '
 
     return result
 
@@ -55,11 +55,16 @@ def setNumber():
 def clearResults():
     list.delete(0, END)
 
+#function that will delete the selected result
+def deleteSelected():
+    print(list.curselection())
+
 #Set up the GUI last so that it has access to functions
 root = Tk()
 root.geometry('800x600')
 root.wm_title("Combinator")
 
+#Instantiation of widgets
 textLabel = Label(root, text = "Input list:")
 text = Text(root, height=30, width = 20)
 
@@ -73,6 +78,9 @@ list = Listbox(root, height = 30, width = 60)
 
 clearBtn = Button(root, text = "Clear", command = clearResults)
 
+deleteBtn = Button(root, text = "Delete", command = deleteSelected)
+
+#Place the widgets on the grid
 entry.grid(column = 2, columnspan = 4, padx = 5, pady = 5, row= 0, rowspan = 1)
 submitBtn.grid(column = 7, columnspan = 4, padx = 5, pady = 5, row= 0, rowspan = 1)
 
@@ -83,8 +91,8 @@ listLabel.grid(column = 12, columnspan = 4, padx = 5, pady = 5, row= 1, rowspan 
 list.grid(column = 11, columnspan = 10, padx = 5, pady = 5, row= 2, rowspan = 10)
 
 rdm_button.grid(column = 2, columnspan = 4, padx = 5, pady = 5, row= 14, rowspan = 1)
-clearBtn.grid(column = 7, columnspan = 4, padx = 5, pady = 5, row= 14, rowspan = 1)
+clearBtn.grid(column = 6, columnspan = 4, padx = 5, pady = 5, row= 14, rowspan = 1)
 
-
+deleteBtn.grid(column = 10, columnspan = 4, padx = 5, pady = 5, row= 14, rowspan = 1)
 
 root.mainloop()
