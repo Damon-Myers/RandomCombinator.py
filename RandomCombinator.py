@@ -15,7 +15,6 @@ def findCompanions(alreadyPicked, whole_list, number_needed):
         try:
             alreadyPicked.index(whole_list[rand_int])
         except ValueError:
-            print("Num needed: " + str(number_needed))
             alreadyPicked.append(whole_list[rand_int])
             number_needed = number_needed - 1
 
@@ -34,7 +33,6 @@ def Randomize():
     things = text.get(1.0, 'end-1c')
     if(things != ""):
         splitStr = things.split('\n')
-        print(str(len(splitStr)))
         for string in splitStr:
             pickedItems = [string]
             temp = findCompanions(pickedItems, splitStr, combinationNum - 1)
@@ -49,7 +47,6 @@ def setNumber():
         combinationNum = 3
     else:
         combinationNum = int(entry.get())
-    print("Number of combinations set to " + str(combinationNum))
 
 #function used to clear the results list
 def clearResults():
